@@ -1,56 +1,34 @@
-const packageButtons = document.querySelectorAll('.package-card');
+const orderForm = document.getElementById('orderForm');
 const packageInput = document.getElementById('package');
 const priceInput = document.getElementById('price');
-const orderSummary = document.getElementById('orderSummary');
-const orderForm = document.getElementById('orderForm');
+const contactBtn = document.getElementById('contactBtn');
+const checkoutForm = document.getElementById('checkoutForm');
 
-const formatCurrency = (value) => `Rp ${value.toLocaleString('id-ID')}`;
+function showOrder(pack, price) {
+  packageInput.value = pack;
+  priceInput.value = `Rp ${price}`;
+  orderForm.scrollIntoView({ behavior: 'smooth' });
+}
 
-const updateSelectedPackage = (button) => {
-  packageButtons.forEach((item) => item.classList.remove('active'));
-  button.classList.add('active');
-
-  const diamonds = button.dataset.diamonds;
-  const price = Number(button.dataset.price);
-
-  packageInput.value = `${diamonds} Diamond`;
-  priceInput.value = formatCurrency(price);
-  orderSummary.innerHTML = `
-    <h3>Ringkasan Pesanan</h3>
-    <p>Paket: <strong>${diamonds} Diamond</strong></p>
-    <p>Harga: <strong>${formatCurrency(price)}</strong></p>
-    <p>Isi UID dan nickname, lalu kirim pesanan untuk proses cepat.</p>
-  `;
-};
-
-packageButtons.forEach((button) => {
-  button.addEventListener('click', () => updateSelectedPackage(button));
+contactBtn.addEventListener('click', () => {
+  orderForm.scrollIntoView({ behavior: 'smooth' });
 });
 
-orderForm.addEventListener('submit', (event) => {
+checkoutForm.addEventListener('submit', (event) => {
   event.preventDefault();
-
-  const uid = document.getElementById('uid').value.trim();
   const nickname = document.getElementById('nickname').value.trim();
-  const selectedPackage = packageInput.value;
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  const pack = packageInput.value;
   const price = priceInput.value;
 
-  if (!uid || !nickname) {
-    alert('Silakan isi UID dan nickname Anda dengan benar.');
+  if (!nickname || !whatsapp || !pack || !price) {
+    alert('Lengkapi semua data sebelum mengirim pesanan.');
     return;
   }
 
-  orderSummary.innerHTML = `
-    <h3>Pesanan Diterima</h3>
-    <p>Terima kasih, <strong>${nickname}</strong>.</p>
-    <p>UID: <strong>${uid}</strong></p>
-    <p>Paket: <strong>${selectedPackage}</strong></p>
-    <p>Total Bayar: <strong>${price}</strong></p>
-    <p>Tim kami akan menghubungi Anda segera untuk konfirmasi pembayaran dan pengiriman diamond.</p>
-  `;
-
-  orderForm.reset();
-  updateSelectedPackage(document.querySelector('.package-card.active'));
+  const message = encodeURIComponent(
+    `Halo, saya ingin membeli ${pack} dengan total ${price}.\nNickname: ${nickname}\nNomor WA: ${whatsapp}`
+  );
+  const waNumber = '6281234567890';
+  window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
 });
-
-updateSelectedPackage(document.querySelector('.package-card.active'));
