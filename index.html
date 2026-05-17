@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diamond Free Fire | Toko Diamond Online</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <h1>Diamond Free Fire</h1>
+        <p>Beli diamond Free Fire cepat, aman, dan langsung terkirim.</p>
+      </div>
+      <a href="#order" class="btn btn-primary">Pesan Sekarang</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-text">
+        <h2>Top up diamond Free Fire dengan harga terbaik</h2>
+        <p>Pilih paket diamond, masukkan UID, dan dapatkan konfirmasi dalam hitungan menit.</p>
+        <a href="#order" class="btn btn-secondary">Lihat Paket</a>
+      </div>
+      <div class="hero-cards">
+        <article class="card">
+          <h3>Paket</h3>
+          <p>Popular</p>
+          <strong>50 Diamond</strong>
+          <span>Rp 7.000</span>
+        </article>
+        <article class="card">
+          <h3>Paket</h3>
+          <p>Best value</p>
+          <strong>140 Diamond</strong>
+          <span>Rp 18.000</span>
+        </article>
+        <article class="card">
+          <h3>Paling Laris</h3>
+          <strong>500 Diamond</strong>
+          <span>Rp 55.000</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="packages container" id="order">
+      <h2>Pilih Paket Diamond</h2>
+      <div class="package-grid">
+        <button class="package-card active" data-diamonds="50" data-price="7000">
+          <h3>50 Diamond</h3>
+          <p>Rp 7.000</p>
+        </button>
+        <button class="package-card" data-diamonds="140" data-price="18000">
+          <h3>140 Diamond</h3>
+          <p>Rp 18.000</p>
+        </button>
+        <button class="package-card" data-diamonds="500" data-price="55000">
+          <h3>500 Diamond</h3>
+          <p>Rp 55.000</p>
+        </button>
+        <button class="package-card" data-diamonds="1000" data-price="105000">
+          <h3>1000 Diamond</h3>
+          <p>Rp 105.000</p>
+        </button>
+      </div>
+
+      <form class="order-form" id="orderForm">
+        <h3>Form Pesanan</h3>
+        <label for="uid">UID Free Fire</label>
+        <input type="text" id="uid" name="uid" placeholder="Masukkan UID Anda" required />
+
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname" placeholder="Nickname FF" required />
+
+        <label for="package">Paket Terpilih</label>
+        <input type="text" id="package" name="package" readonly value="50 Diamond" />
+
+        <label for="price">Jumlah Bayar</label>
+        <input type="text" id="price" name="price" readonly value="Rp 7.000" />
+
+        <button type="submit" class="btn btn-primary">Kirim Pesanan</button>
+      </form>
+
+      <div class="order-summary" id="orderSummary">
+        <h3>Ringkasan Pesanan</h3>
+        <p>Pilih paket untuk melihat total harga dan detail pesanan.</p>
+      </div>
+    </section>
+
+    <section class="how-it-works container">
+      <h2>Cara Pemesanan</h2>
+      <div class="steps">
+        <article>
+          <h4>1. Pilih Paket</h4>
+          <p>Pilih jumlah diamond yang ingin dibeli.</p>
+        </article>
+        <article>
+          <h4>2. Isi UID & Nickname</h4>
+          <p>Masukkan UID Free Fire dan nickname dengan benar.</p>
+        </article>
+        <article>
+          <h4>3. Konfirmasi & Bayar</h4>
+          <p>Konfirmasi pesanan, lalu lakukan pembayaran sesuai harga.</p>
+        </article>
+        <article>
+          <h4>4. Diamond Terkirim</h4>
+          <p>Diamond akan dikirim langsung setelah pembayaran diterima.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Toko Diamond FF. Konten hanya contoh demo.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
